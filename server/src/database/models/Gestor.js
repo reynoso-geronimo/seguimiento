@@ -26,13 +26,13 @@ module.exports=(sequelize, dataTypes)=>{
 let config = {
     tableName:'Gestores',
     timestamps:false,
-
+    freezeTableName: true,
 }
 const Gestor=sequelize.define(alias,cols,config)
 Gestor.associate=function (models) {
     Gestor.hasMany(models.Clientes,{
         as:'Clientes',
-        foreingKey:'id_gestor'
+        foreignKey:"id_gestor"
     })
     
 }
