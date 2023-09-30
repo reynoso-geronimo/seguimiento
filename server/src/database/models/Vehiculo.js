@@ -1,6 +1,5 @@
 
 
-
 module.exports= (sequelize,dataTypes)=>{
 
 let alias='Vehiculos'
@@ -36,10 +35,11 @@ let config = {
 }
 const Vehiculo=sequelize.define(alias,cols,config)
 Vehiculo.associate=function(models){
-    Vehiculo.belongTo(models.Concesionarios,{
+    Vehiculo.belongsTo(models.Concesionarios,{
         as:"Concesionarios",
         foreignKey:'id_concesionario'
         
     })
 }
+return Vehiculo
 }

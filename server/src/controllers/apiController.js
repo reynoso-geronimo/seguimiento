@@ -1,7 +1,7 @@
 
 const { Association } = require('sequelize');
 const db=require('../database/models');
-const Concesionario = require('../database/models/Concesionario');
+
 
 
 module.exports ={
