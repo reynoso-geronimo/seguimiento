@@ -1,6 +1,7 @@
 
 const { Association } = require('sequelize');
-const db=require('../database/models')
+const db=require('../database/models');
+const Concesionario = require('../database/models/Concesionario');
 
 
 module.exports ={
@@ -83,9 +84,49 @@ gestorEdit:async function(req,res){
        } catch (error) {
         console.log(error);
        }
+    },
+
+// concesionarios 
+
+listConsecionarios: async function(req,res){
+    try {
+       const concesionarios= await db.Concesionarios.findAll()
+        return res.json(concesionarios)
+    } catch (error) {
+        console.log(error);
     }
+},
+concesionarioDetail: async function(req,res){
+
+try {
+    const concesionarios= await db.Concesionarios.findByPk(req.params.id)
+    return res.json(concesionarios)
+} catch (error) {
+    console.log(error);
+}
 
 
+
+},
+
+concesionarioCreate:async function(req,res){
+    try {
+        const nuevoConcesionario= await db.Concesionarios.create(req.body)
+        res.json({status:200,msg:'consecionario creado con exito!!'})
+
+    } catch (error) {
+        console.log(error);
+    }
+},
+concesionarioEditar: async function(req,res){
+    const concesionarioActualizado=req.body
+    try {
+        const concesionarioEditar= await db.Concesionarios.update({...concesionarioActualizado},{where:{id:req.params.id}})
+        return res.json()
+    } catch (error) {                                      
+        console.log(error);
+    }
+}
 
 
 }
