@@ -1,5 +1,3 @@
-
-const { Association } = require('sequelize');
 const db=require('../database/models');
 
 
@@ -127,21 +125,44 @@ concesionarioEditar: async function(req,res){
         console.log(error);
     }
 },
+//tickets
 
-
-// controladores vehiculos
-
-vehiculosList: async function(req,res){
+ticketCreate:async function(req,res){
     try {
-        const Vehiculos= await db.Vehiculos.findAll({include:[{association:'Concesionarios'},
-        // TODO: INCLUDES ANOTHER ASSOCIATIONS!!!!!!!!!!! 
-     ]})
-         return res.json(Vehiculos)
-     } catch (error) {
-         console.log(error);
-     }
+        const nuevoTicket= await db.Tickets.create(req.body)
+        res.json({status:200,msg:'Ticket creado con exito!!'})
+    } catch (error) {
+        console.log(error);
+    }
+},
+listTicket: async function(req,res){
+    try {
+       const concesionarios= await db.Ticket.findAll()
+        return res.json(concesionarios)
+    } catch (error) {
+        console.log(error);
+    }
+},
+ticketDetail: async function(req,res){
 
+try {
+    const concesionarios= await db.Ticket.findByPk(req.params.id)
+    return res.json(concesionarios)
+} catch (error) {
+    console.log(error);
 }
 
+
+
+},
+ticketEditar: async function(req,res){
+    const ticketAcutalizado=req.body
+    try {
+        const ticketEditar= await db.Ticket.update({...ticketAcutalizado},{where:{id:req.params.id}})
+        return res.json()
+    } catch (error) {                                      
+        console.log(error);
+    }
+},
 
 }
