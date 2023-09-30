@@ -3,10 +3,9 @@ USE SEGUIMIENTO;
 CREATE TABLE `gestores`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nombre` VARCHAR(255) NOT NULL,
-    `password` VARCHAR(255) NOT NULL,
-    `clientes` VARCHAR(255) NOT NULL
+    `password` VARCHAR(255) NOT NULL
 );
-CREATE TABLE `cliente`(
+CREATE TABLE `clientes`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `nombre` VARCHAR(255) NOT NULL,
     `cuit` INT UNSIGNED NOT NULL,
@@ -56,8 +55,8 @@ ALTER TABLE
 ALTER TABLE
     `vehiculo` ADD CONSTRAINT `vehiculo_id_tiket_foreign` FOREIGN KEY(`id_tiket`) REFERENCES `tickets`(`id`);
 ALTER TABLE
-    `vehiculo` ADD CONSTRAINT `vehiculo_id_cliente_foreign` FOREIGN KEY(`id_cliente`) REFERENCES `cliente`(`id`);
+    `vehiculo` ADD CONSTRAINT `vehiculo_id_clientes_foreign` FOREIGN KEY(`id_cliente`) REFERENCES `clientes`(`id`);
 ALTER TABLE
     `tickets` ADD CONSTRAINT `tickets_id_gestor_foreign` FOREIGN KEY(`id_gestor`) REFERENCES `gestores`(`id`);
 ALTER TABLE
-    `cliente` ADD CONSTRAINT `cliente_id_gestor_foreign` FOREIGN KEY(`id_gestor`) REFERENCES `gestores`(`id`);
+    `clientes` ADD CONSTRAINT `clientes_id_gestor_foreign` FOREIGN KEY(`id_gestor`) REFERENCES `gestores`(`id`);
