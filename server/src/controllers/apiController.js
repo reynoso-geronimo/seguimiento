@@ -137,7 +137,7 @@ ticketCreate:async function(req,res){
 },
 listTicket: async function(req,res){
     try {
-       const concesionarios= await db.Ticket.findAll()
+       const concesionarios= await db.Tickets.findAll()
         return res.json(concesionarios)
     } catch (error) {
         console.log(error);
@@ -146,7 +146,7 @@ listTicket: async function(req,res){
 ticketDetail: async function(req,res){
 
 try {
-    const concesionarios= await db.Ticket.findByPk(req.params.id)
+    const concesionarios= await db.Tickets.findByPk(req.params.id)
     return res.json(concesionarios)
 } catch (error) {
     console.log(error);
@@ -164,5 +164,25 @@ ticketEditar: async function(req,res){
         console.log(error);
     }
 },
+
+// vehiculos controller
+
+vehiculosList:async function(req,res){
+    try {
+        const listaVehiculos =await  db.Vehiculos.findAll();
+        return res.json(listaVehiculos)
+    } catch (error) {
+        console.log(error);
+    }
+},
+vehiculoCreate: async function(req,res){
+    try {
+        const createVehiculo=await db.Vehiculos.create(req.body)
+        return res.json(createVehiculo)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
 }

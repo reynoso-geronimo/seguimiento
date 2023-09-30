@@ -31,5 +31,19 @@ router.put('/editar/concesionario/:id',apiController.concesionarioEditar)
 // rutas vehiculos
 
 router.get('/vehiculos',apiController.vehiculosList)
+router.post('/crear/vehiculo',apiController.vehiculoCreate)
+
+// rutas tikets
+router.post('/crear/ticket',apiController.ticketCreate)
+router.get('/tickets',apiController.listTicket)
+router.get('/tickets/:id',apiController.ticketDetail)
+router.put('/editar/ticket/:id',apiController.ticketEditar)
+
+
+
+
+
+
+
 
 module.exports = router
