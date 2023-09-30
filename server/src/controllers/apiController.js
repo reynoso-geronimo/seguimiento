@@ -1,7 +1,5 @@
-
-const { Association } = require('sequelize');
 const db=require('../database/models');
-const Concesionario = require('../database/models/Concesionario');
+
 
 
 module.exports ={
@@ -126,7 +124,45 @@ concesionarioEditar: async function(req,res){
     } catch (error) {                                      
         console.log(error);
     }
+},
+//tickets
+
+ticketCreate:async function(req,res){
+    try {
+        const nuevoTicket= await db.Tickets.create(req.body)
+        res.json({status:200,msg:'Ticket creado con exito!!'})
+    } catch (error) {
+        console.log(error);
+    }
+},
+listTicket: async function(req,res){
+    try {
+       const concesionarios= await db.Ticket.findAll()
+        return res.json(concesionarios)
+    } catch (error) {
+        console.log(error);
+    }
+},
+ticketDetail: async function(req,res){
+
+try {
+    const concesionarios= await db.Ticket.findByPk(req.params.id)
+    return res.json(concesionarios)
+} catch (error) {
+    console.log(error);
 }
 
+
+
+},
+ticketEditar: async function(req,res){
+    const ticketAcutalizado=req.body
+    try {
+        const ticketEditar= await db.Ticket.update({...ticketAcutalizado},{where:{id:req.params.id}})
+        return res.json()
+    } catch (error) {                                      
+        console.log(error);
+    }
+},
 
 }

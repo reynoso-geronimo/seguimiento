@@ -24,7 +24,7 @@ CREATE TABLE `vehiculo`(
     `patente` VARCHAR(255) NOT NULL,
     `id_cliente` BIGINT UNSIGNED NOT NULL,
     `id_concesionario` BIGINT UNSIGNED NOT NULL,
-    `id_tiket` BIGINT UNSIGNED NOT NULL
+    `id_ticket` BIGINT UNSIGNED NOT NULL
 );
 CREATE TABLE `concesionario`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -38,14 +38,14 @@ CREATE TABLE `tickets`(
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `id_concesionario` BIGINT UNSIGNED NOT NULL,
     `numero_servicio` TINYINT UNSIGNED NOT NULL,
-    `create_at` DATETIME NOT NULL,
-    `delete_at` DATETIME NOT NULL,
-    `update_at` DATETIME NOT NULL,
+    `created_at` DATETIME NOT NULL,
+    `deleted_at` DATETIME NOT NULL,
+    `updated_at` DATETIME NOT NULL,
     `fecha_turno` DATETIME NOT NULL,
     `proveedor_service` VARCHAR(255) NOT NULL,
     `presupuesto` DOUBLE(8, 2) NOT NULL,
     `reparaciones` VARCHAR(255) NOT NULL,
-    `estado_tiket` VARCHAR(255) NOT NULL,
+    `estado_ticket` VARCHAR(255) NOT NULL,
     `observaciones` VARCHAR(255) NOT NULL,
     `factura` VARCHAR(255) NOT NULL,
     `id_gestor` BIGINT UNSIGNED NOT NULL
@@ -53,7 +53,7 @@ CREATE TABLE `tickets`(
 ALTER TABLE
     `vehiculo` ADD CONSTRAINT `vehiculo_id_concesionario_foreign` FOREIGN KEY(`id_concesionario`) REFERENCES `concesionario`(`id`);
 ALTER TABLE
-    `vehiculo` ADD CONSTRAINT `vehiculo_id_tiket_foreign` FOREIGN KEY(`id_tiket`) REFERENCES `tickets`(`id`);
+    `vehiculo` ADD CONSTRAINT `vehiculo_id_ticket_foreign` FOREIGN KEY(`id_ticket`) REFERENCES `tickets`(`id`);
 ALTER TABLE
     `vehiculo` ADD CONSTRAINT `vehiculo_id_clientes_foreign` FOREIGN KEY(`id_cliente`) REFERENCES `clientes`(`id`);
 ALTER TABLE
