@@ -126,6 +126,21 @@ concesionarioEditar: async function(req,res){
     } catch (error) {                                      
         console.log(error);
     }
+},
+
+
+// controladores vehiculos
+
+vehiculosList: async function(req,res){
+    try {
+        const Vehiculos= await db.Vehiculos.findAll({include:[{association:'Concesionarios'},
+        // TODO: INCLUDES ANOTHER ASSOCIATIONS!!!!!!!!!!! 
+     ]})
+         return res.json(Vehiculos)
+     } catch (error) {
+         console.log(error);
+     }
+
 }
 
 

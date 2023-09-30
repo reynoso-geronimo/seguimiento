@@ -28,4 +28,8 @@ router.get('/concesionarios/:id',apiController.concesionarioDetail)
 
 router.put('/editar/concesionario/:id',apiController.concesionarioEditar)
 
+// rutas vehiculos
+
+router.get('/vehiculos',apiController.vehiculosList)
+
 module.exports = router
