@@ -11,15 +11,13 @@ module.exports = (sequelize, dataTypes) => {
     dominio: {
       type: dataTypes.STRING(255),
     },
-    año: {
+    anio: {
       type: dataTypes.INTEGER,
     },
     modelo: {
       type: dataTypes.STRING(255),
     },
-    patente: {
-      type: dataTypes.STRING(255),
-    },
+    
   };
   let config = {
     tableName: "vehiculo",
