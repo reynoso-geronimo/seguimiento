@@ -55,6 +55,10 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'id_gestor'
 
         })
+    Ticket.belongsTo(models.Vehiculos,{
+        as:"Vehiculos",
+        foreignKey:"id_vehiculo"
+    })
     }
     return Ticket
 }

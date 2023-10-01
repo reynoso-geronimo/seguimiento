@@ -138,7 +138,7 @@ ticketCreate:async function(req,res){
 },
 listTicket: async function(req,res){
     try {
-       const concesionarios= await db.Tickets.findAll()
+       const concesionarios= await db.Tickets.findAll({include:[{association:'Vehiculos'}]})
         return res.json(concesionarios)
     } catch (error) {
         console.log(error);
