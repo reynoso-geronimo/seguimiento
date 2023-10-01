@@ -30,6 +30,10 @@ module.exports = (sequelize, dataTypes) => {
       as: "Concesionarios",
       foreignKey: "id_concesionario",
     });
+    Vehiculo.belongsTo(models.Clientes, {
+      as: "Clientes",
+      foreignKey: "id_cliente",
+    });
   };
   return Vehiculo;
 };
