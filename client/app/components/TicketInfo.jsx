@@ -11,7 +11,7 @@ const TicketInfo = ({ ticket }) => {
    id ticket: {ticket.id}
  
  </h5>
- <h5> servicios solicitiado: {ticket.createdAt.toLocaleDateString('ar-AR')}</h5>
+ <h5> servicios solicitiado: {new Date(ticket.createdAt).toLocaleDateString('es-AR')}</h5>
  
      </div>
    );
