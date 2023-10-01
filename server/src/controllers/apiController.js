@@ -129,6 +129,7 @@ concesionarioEditar: async function(req,res){
 
 ticketCreate:async function(req,res){
     try {
+        console.log(req.body)
         const nuevoTicket= await db.Tickets.create(req.body)
         res.json({status:200,msg:'Ticket creado con exito!!'})
     } catch (error) {
