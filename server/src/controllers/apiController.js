@@ -147,8 +147,10 @@ listTicket: async function(req,res){
 ticketDetail: async function(req,res){
 
 try {
-    const concesionarios= await db.Tickets.findByPk(req.params.id)
-    return res.json(concesionarios)
+    const ticket= await db.Tickets.findByPk(req.params.id)
+    console.log(req.params.id)
+    console.log(ticket)
+    return res.json(ticket)
 } catch (error) {
     console.log(error);
 }
