@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from "react";
 
-const FormEditTicket = ({id}) => {
+const FormEditTicket = ({id,getTicket}) => {
   const [form, setForm] = useState({
   
   });
@@ -28,6 +28,7 @@ const FormEditTicket = ({id}) => {
       }
     
       const resultado = await cambios.json();
+      getTicket()
       console.log(resultado);
     } catch (error) {
       console.error("Error al realizar la solicitud:", error);

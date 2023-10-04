@@ -5,17 +5,19 @@ import { useState, useEffect } from "react";
 const Ticket = props => {
   const [ticket, setTicket] = useState([]);
 
-  useEffect(() => {
-    const getTicket = async () => {
-      try {
-        const consultaTickets = await fetch(
-          `http://localhost:3001/api/tickets/${props.params.id}`
-        );
-        const resultado = await consultaTickets.json();
+  const getTicket = async () => {
+    try {
+      const consultaTickets = await fetch(
+        `http://localhost:3001/api/tickets/${props.params.id}`
+      );
+      const resultado = await consultaTickets.json();
 
-        setTicket(resultado);
-      } catch (error) { }
-    };
+      setTicket(resultado);
+    } catch (error) { }
+  };
+
+  useEffect(() => {
+    
 
     getTicket();
   }, []);
@@ -37,7 +39,7 @@ const Ticket = props => {
       
     
 
-<FormEditTicket id={props.params.id}/>
+<FormEditTicket id={props.params.id} getTicket={getTicket}/>
     
     
     
