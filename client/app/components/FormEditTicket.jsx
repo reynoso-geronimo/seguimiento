@@ -47,7 +47,7 @@ const FormEditTicket = ({id}) => {
               <input
                 onChange={handleChange}
                 type="num"
-                name="numeroServicio"
+                name="numero_servicio"
                 id="num-servicio"
                 className="border rounded-lg focus:ring-blue-400 
             focus:border-gray-600 w-full p-2.5 bg-gray-200 border-gray-400 place-holder-gray-400 
@@ -59,7 +59,7 @@ const FormEditTicket = ({id}) => {
               <input
                 onChange={handleChange}
                 type="date"
-                name="fechaServicio"
+                name="fecha_turno"
                 id="fecha-servicio"
                 className="border rounded-lg focus:ring-blue-400 
             focus:border-gray-600 w-full p-2.5 bg-gray-200 border-gray-400 place-holder-gray-400 
@@ -71,7 +71,7 @@ const FormEditTicket = ({id}) => {
               <input
                 onChange={handleChange}
                 type="text"
-                name="proveedorServicio"
+                name="proveedor_service"
                 id="servicio"
                 className="border rounded-lg focus:ring-blue-400 
             focus:border-gray-600 w-full p-2.5 bg-gray-200 border-gray-400 place-holder-gray-400 
@@ -95,7 +95,7 @@ const FormEditTicket = ({id}) => {
               <input
                 onChange={handleChange}
                 type="text"
-                name="estadoServicio"
+                name="estado_ticket"
                 id="estado-servicio"
                 className="border rounded-lg focus:ring-blue-400 
             focus:border-gray-600 w-full p-2.5 bg-gray-200 border-gray-400 place-holder-gray-400 
@@ -107,7 +107,7 @@ const FormEditTicket = ({id}) => {
               <input
                 onChange={handleChange}
                 type="file"
-                name="facturaServicio"
+                name="factura"
                 id="factura-servicio"
                 className="border rounded-lg focus:ring-blue-400 
             focus:border-gray-600 w-full p-2.5 bg-gray-200 border-gray-400 place-holder-gray-400 

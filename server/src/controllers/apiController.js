@@ -159,10 +159,12 @@ try {
 
 },
 ticketEditar: async function(req,res){
-    const ticketAcutalizado=req.body
+    const ticketAcutalizado= req.body
+    
+
     console.log(ticketAcutalizado);
     try {
-        const ticketEditar= await db.Ticket.update({...ticketAcutalizado},{where:{id:req.params.id}})
+        const ticketEditar= await db.Tickets.update({...ticketAcutalizado},{where:{id:req.params.id}})
         return res.json({status:200})
     } catch (error) {  
         console.log(error);
