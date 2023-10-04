@@ -37,7 +37,7 @@ const Ticket = props => {
       
     
 
-<FormEditTicket />
+<FormEditTicket id={props.params.id}/>
     
     
     

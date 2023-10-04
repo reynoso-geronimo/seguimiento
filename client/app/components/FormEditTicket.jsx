@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const FormEditTicket = (props) => {
+const FormEditTicket = ({id}) => {
   const [form, setForm] = useState({
   
   });
@@ -15,23 +15,23 @@ const FormEditTicket = (props) => {
     e.preventDefault();
 
     try {
-        console.log("consultando");
-      const cambios = await fetch(
-        `http://localhost:3001/editar/ticket/${props.params.id}`,{
-            method:"PUT",
-            headers:{
-                'Content-Type': 'application/json',
-
-            },
-            body:JSON.stringify(form)
-
-        }
-      );
+      const cambios = await fetch(`http://localhost:3001/api/editar/ticket/${id}`, {
+        method: "PUT",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form)
+      });
+    
+      if (!cambios.ok) {
+        throw new Error(`La solicitud falló con código ${cambios.status}`);
+      }
+    
       const resultado = await cambios.json();
       console.log(resultado);
-    } catch (error) {}
-
-   
+    } catch (error) {
+      console.error("Error al realizar la solicitud:", error);
+    }
   };
 
   return (
