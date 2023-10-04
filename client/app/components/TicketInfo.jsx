@@ -6,7 +6,7 @@ const TicketInfo = ({ ticket }) => {
   }, [ticket]);
  if (ticket!=undefined) {
   return (
-    <div > 
+    <div className="border-2 p-2"> 
  <h5 >
    id ticket: {ticket.id}
  
@@ -14,7 +14,7 @@ const TicketInfo = ({ ticket }) => {
  <h5> Servicios solicitiado: {new Date(ticket.createdAt).toLocaleDateString('es-AR')}</h5>
  <h5>Estado del servicio: {ticket.estado_ticket}</h5>
  <h5> Dominio del vehiculo: {ticket.Vehiculos.dominio}</h5>
- <button className="w-20 bg-white text-black border-4 border-blue-600">
+ <button className="text-cyan-700  w-24 rounded-3xl bg-zinc-900  ml-[400px]">
   <Link href={`/ticket/${ticket.id}`}> Procesar servicio </Link>
 
  </button>

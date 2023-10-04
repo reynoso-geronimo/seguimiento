@@ -23,7 +23,7 @@ export default function Home() {
   }, []);
  
   return (
-    <main className="flex min-h-screen flex-col items-center justify-around p-10">
+    <main className="flex min-h-screen flex-col items-center justify-around p-10 ">
       {tickets.map((ticket,i)=>{
         return <TicketInfo key={ticket+i}ticket={ticket}></TicketInfo>
       })}

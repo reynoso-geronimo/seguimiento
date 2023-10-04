@@ -1,4 +1,5 @@
 "use client";
+import FormEditTicket from "@/app/components/FormEditTicket";
 import { useState, useEffect } from "react";
 
 const Ticket = props => {
@@ -19,9 +20,10 @@ const Ticket = props => {
     getTicket();
   }, []);
   return (
-    <div className="w-full font-medium">
+    <div className="w-full font-medium  ">
 
       <div className="w-1/2 m-auto mt-20 border-2 p-2">
+        <h1 className="text-center"> Detalle del pedido solicitado</h1>
         <div className="flex flex-row justify-around"><h1>Ticket Numero: {ticket.id}</h1> <h1>Servicio Numero: {ticket.numero_servicio}</h1></div>
         <div className="">Fecha servicio: {ticket.fecha_servicio ? ticket.fecha_servicio : "Sin Asignar"}</div>
         <div className="">Proveedor servicio: {ticket.proveedor_service ? ticket.proveedor_service : "Sin Asignar"}</div>
@@ -32,6 +34,14 @@ const Ticket = props => {
         <div className="">Factura: {ticket.factura ? ticket.factura : "Sin Asignar"}</div>
         <div className="">Observaciones: {ticket.observaciones ? ticket.observaciones : "Sin Observaciones"}</div>
       </div>
+      
+    
+
+<FormEditTicket />
+    
+    
+    
+    
     </div>
   );
 };
