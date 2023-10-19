@@ -1,15 +1,20 @@
 const express = require('express')
 const app = express()
-const port = 3001
+const path = require("path");
+const port = process.env.port||3001
+const mainRoutes = require("./routes/mainRoutes")
 const apiRoutes= require('./routes/apiRoutes')
-const cors=require('cors')
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
-app.use(cors())
-app.get('/', (req, res) => res.send('Hello World!'))
 
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.set("view engine", "ejs")
+app.set('views', path.resolve(__dirname,'../views'))
+app.use(express.static(path.resolve(__dirname, "./../public")));
+
+app.listen(port, () => {
+  console.log(`Servidor corriendo en el puerto ${port}`);
+});
 
 app.use('/api',apiRoutes)
-
+app.use(mainRoutes)
