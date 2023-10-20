@@ -14,8 +14,8 @@ module.exports = {
         });
         return res.render("history", { tickets: ticketsBorrados })
     },
-    new: (req, res) => {
-        return res.render("new")
+    nuevoVehiculo: (req, res) => {
+        return res.render("nuevoVehiculo")
     },
     agregar: async (req, res) => {
 

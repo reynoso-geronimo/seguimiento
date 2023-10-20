@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('./partials/head') %>
+
+<body class="flex-body">
+ 
+    <%- include('./partials/nav') %>
+  <main>
+    <form class="form-nuevo" action="/nuevo" method="post" id="form">
+      <label for="dominio">DOMINIO</label>
+      <input type="text" name="dominio" id="dominio" required />
+      <label for="anio">AÑO</label>
+      <input type="text" name="anio" id="anio" required/>
+      <label for="modelo">MODELO</label>
+      <input type="text" name="modelo" id="modelo" required/>
+      <label for="cliente">CLIENTE</label>
+      <select name="id_cliente" id="cliente">
+        <option value="1">Placeholder</option>
+        <option value="1">Placeholder</option>
+        <option value="1">Placeholder</option>
+        <option value="1">Placeholder</option>
+        <option value="1">Placeholder</option>
+      </select>
+      <label for="concesionario">CONSESIONARIO</label>
+      <select name="id_consesionario" id="concesionario">
+        <option value="1">Placeholder</option>
+        <option value="1">Placeholder</option>
+        <option value="1">Placeholder</option>
+        <option value="1">Placeholder</option>
+        <option value="1">Placeholder</option>
+      </select>
+      <button type="submit" class="sidebar-btn"><span>Agregar</span></button>
+    </form>
+  </main>
+
+  
+</body>
+
+</html>
